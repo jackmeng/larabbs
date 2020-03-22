@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyEmailContract
 {
     use HasRoles;
+    use Traits\ActiveUserHelper;
     use MustVerifyEmailTrait;
     use Notifiable {
         notify as protected laravelNotify;
@@ -88,5 +89,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
         $this->attributes['avatar'] = $path;
     }
+
+
 
 }
